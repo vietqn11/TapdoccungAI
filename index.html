@@ -35,7 +35,7 @@
 </head>
   <body class="bg-blue-50 font-sans">
     <div id="root"></div>
-    <!-- Explicitly tell Babel to use react and typescript presets to transpile the module -->
-    <script type="text/babel" data-presets="react,typescript" data-type="module" src="./index.tsx"></script>
+    <!-- The script is no longer a module, as all code has been bundled into a single file -->
+    <script type="text/babel" data-presets="react,typescript" src="./index.tsx"></script>
   </body>
 </html>
