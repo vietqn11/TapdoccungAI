@@ -72,4 +72,6 @@ Về nhà với đôi sừng và bộ râu giả, voi em hớn hở hỏi anh:
 – Em có xinh hơn không?
 Voi anh nói:
 – Trời ơi, sao em lại thêm sừng và râu thế này? Xấu lắm!
-Voi em ngắm mình trong gương và thấy xấu thật. Sau khi bỏ sừng và râu đi, voi em thấy
+Voi em ngắm mình trong gương và thấy xấu thật. Sau khi bỏ sừng và râu đi, voi em thấy mình xinh đẹp hẳn lên. Giờ đây, voi em hiểu rằng mình chỉ xinh đẹp khi đúng là voi.`
+    },
+];
