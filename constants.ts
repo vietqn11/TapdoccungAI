@@ -1,4 +1,4 @@
-import type { Passage } from './types';
+import type { Passage } from './types.ts';
 
 export const READING_PASSAGES: Passage[] = [
     // --- TẬP MỘT ---

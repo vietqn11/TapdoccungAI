@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { useAudioRecorder } from '../hooks/useAudioRecorder';
-import { useAudioPlayer } from '../hooks/useAudioPlayer';
-import { generateSpeech } from '../services/geminiService';
-import type { Passage } from '../types';
+import { useAudioRecorder } from '../hooks/useAudioRecorder.ts';
+import { useAudioPlayer } from '../hooks/useAudioPlayer.ts';
+import { generateSpeech } from '../services/geminiService.ts';
+import type { Passage } from '../types.ts';
 
 interface ReadingViewProps {
   passage: Passage;
