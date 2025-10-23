@@ -1,4 +1,5 @@
-import type { Passage } from './types';
+
+import type { Passage } from './types.ts';
 
 export const READING_PASSAGES: Passage[] = [
     { id: 1, title: "Bài 1: Tôi là học sinh lớp 2", content: "Ngày khai trường đã đến. Sáng sớm, mẹ mới gọi một câu mà tôi đã vùng dậy, khác hẳn mọi ngày. Tôi loáng một cái là xong hết mọi việc. Nhưng gần đến giờ đi, tôi lại thấy lo. Tôi nói với mẹ:\n- Con không đi học đâu.\n- Sao thế con?\n- Con sợ lắm. Con không quen ai ở trường.\nMẹ dịu dàng:\n- Đừng lo, con sẽ quen ngay thôi. Ở trường vui lắm.\nThấy tôi vẫn chưa hết lo, mẹ nói:\n- Trường mới của con ngay gần trường mầm non, con còn lạ gì nữa.\nNghe mẹ nói, tôi yên tâm hơn. Cùng mẹ đi trên con đường quen thuộc, tôi chợt thấy cảnh vật hôm nay khác hẳn. Tôi cũng không còn cảm giác sợ hãi. Thay vào đó là lòng háo hức, mong chờ." },

@@ -1,6 +1,6 @@
 import React from 'react';
-import { READING_PASSAGES } from '../constants';
-import type { Passage, StudentInfo } from '../types';
+import { READING_PASSAGES } from '../constants.ts';
+import type { Passage, StudentInfo } from '../types.ts';
 
 interface PassageListProps {
   studentInfo: StudentInfo;

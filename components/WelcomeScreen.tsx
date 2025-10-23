@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import type { StudentInfo } from '../types';
+import type { StudentInfo } from '../types.ts';
 
 interface WelcomeScreenProps {
   onStart: (studentInfo: StudentInfo) => void;
