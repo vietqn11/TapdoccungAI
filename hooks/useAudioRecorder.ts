@@ -6,6 +6,7 @@ type AudioRecorderHook = {
   startRecording: () => Promise<void>;
   stopRecording: () => Promise<{ audioBase64: string, mimeType: string }>;
   error: string | null;
+  getAnalyserData: () => Uint8Array | null;
 };
 
 export function useAudioRecorder(): AudioRecorderHook {
@@ -14,11 +15,19 @@ export function useAudioRecorder(): AudioRecorderHook {
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
 
+  // For visualization
+  const audioContextRef = useRef<AudioContext | null>(null);
+  const analyserRef = useRef<AnalyserNode | null>(null);
+  const dataArrayRef = useRef<Uint8Array | null>(null);
+  const sourceNodeRef = useRef<MediaStreamAudioSourceNode | null>(null);
+
   const startRecording = useCallback(async () => {
     setError(null);
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        
+        // --- Setup for recording ---
         const mediaRecorder = new MediaRecorder(stream);
         mediaRecorderRef.current = mediaRecorder;
         
@@ -31,6 +40,23 @@ export function useAudioRecorder(): AudioRecorderHook {
           audioChunksRef.current = [];
         };
 
+        // --- Setup for visualization ---
+        const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+        audioContextRef.current = audioContext;
+        
+        const source = audioContext.createMediaStreamSource(stream);
+        sourceNodeRef.current = source;
+        
+        const analyser = audioContext.createAnalyser();
+        analyser.fftSize = 256;
+        analyserRef.current = analyser;
+
+        const bufferLength = analyser.frequencyBinCount;
+        dataArrayRef.current = new Uint8Array(bufferLength);
+        
+        source.connect(analyser);
+
+        // Start recording
         mediaRecorder.start();
 
       } catch (err) {
@@ -57,8 +83,21 @@ export function useAudioRecorder(): AudioRecorderHook {
           reader.onerror = (error) => {
               reject(error);
           };
+          
           setIsRecording(false);
+          
+          // Stop mic stream
           mediaRecorderRef.current?.stream.getTracks().forEach(track => track.stop());
+
+          // Cleanup visualization resources
+          sourceNodeRef.current?.disconnect();
+          analyserRef.current = null;
+          sourceNodeRef.current = null;
+          if (audioContextRef.current?.state !== 'closed') {
+            audioContextRef.current?.close();
+          }
+          audioContextRef.current = null;
+          dataArrayRef.current = null;
         };
         mediaRecorderRef.current.stop();
       } else {
@@ -67,5 +106,13 @@ export function useAudioRecorder(): AudioRecorderHook {
     });
   }, [isRecording]);
 
-  return { isRecording, startRecording, stopRecording, error };
+  const getAnalyserData = useCallback(() => {
+      if (analyserRef.current && dataArrayRef.current) {
+          analyserRef.current.getByteFrequencyData(dataArrayRef.current);
+          return dataArrayRef.current;
+      }
+      return null;
+  }, []);
+
+  return { isRecording, startRecording, stopRecording, error, getAnalyserData };
 }
