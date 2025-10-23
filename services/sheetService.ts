@@ -1,4 +1,4 @@
-import type { EvaluationResult, Passage, StudentInfo } from '../types.ts';
+import type { EvaluationResult, Passage, StudentInfo } from '../types';
 
 /**
  * !!! CẤU HÌNH GOOGLE APPS SCRIPT !!!

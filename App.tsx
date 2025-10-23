@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { WelcomeScreen } from './components/WelcomeScreen.tsx';
-import { PassageList } from './components/PassageList.tsx';
-import { ReadingView } from './components/ReadingView.tsx';
-import { EvaluationView } from './components/EvaluationView.tsx';
-import { Spinner } from './components/Spinner.tsx';
-import { evaluateReading } from './services/geminiService.ts';
-import { saveEvaluationToSheet } from './services/sheetService.ts';
-import type { Page, StudentInfo, Passage, EvaluationResult, SheetSaveStatus } from './types.ts';
+import { WelcomeScreen } from './components/WelcomeScreen';
+import { PassageList } from './components/PassageList';
+import { ReadingView } from './components/ReadingView';
+import { EvaluationView } from './components/EvaluationView';
+import { Spinner } from './components/Spinner';
+import { evaluateReading } from './services/geminiService';
+import { saveEvaluationToSheet } from './services/sheetService';
+import type { Page, StudentInfo, Passage, EvaluationResult, SheetSaveStatus } from './types';
 
 
 export default function App() {

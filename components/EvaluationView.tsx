@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import type { EvaluationResult, StudentInfo, Passage, SheetSaveStatus } from '../types.ts';
-import { useAudioPlayer } from '../hooks/useAudioPlayer.ts';
-import { generateSpeech } from '../services/geminiService.ts';
+import type { EvaluationResult, StudentInfo, Passage, SheetSaveStatus } from '../types';
+import { useAudioPlayer } from '../hooks/useAudioPlayer';
+import { generateSpeech } from '../services/geminiService';
 
 interface ScoreBarProps {
   label: string;
