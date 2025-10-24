@@ -1,5 +1,5 @@
 {
-  "name": "Luyện đọc cho học sinh lớp 2_ok 2 gop html_ok",
+  "name": "Copy of Luyện đọc cho học sinh lớp 2_ok 2 gop html_ok",
   "description": "Một ứng dụng giúp học sinh lớp 2 luyện đọc các bài văn trong sách giáo khoa Kết nối tri thức. Ứng dụng sử dụng AI để ghi âm, phân tích và đưa ra đánh giá chi tiết về khả năng đọc của học sinh, sau đó gửi kết quả cho giáo viên.",
   "requestFramePermissions": [
     "microphone"
