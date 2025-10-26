@@ -1,5 +1,5 @@
 {
-  "name": "copy-of-luyện-đọc-cho-học-sinh-lớp-2_ok-2-gop-html_ok",
+  "name": "luyện-đọc-cho-học-sinh-lớp-2",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,8 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "18.2.0",
-    "@google/genai": "latest"
+    "react-dom": "^19.2.0",
+    "react": "^19.2.0",
+    "@google/genai": "^1.26.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
